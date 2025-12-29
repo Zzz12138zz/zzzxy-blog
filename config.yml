@@ -4,6 +4,8 @@ theme: 'PaperMod'
 languageCode: 'zh-CN'
 hasCJKLanguage: true
 canonifyURLs: true
+relativeURLs: false
+uglyURLs: false
 
 outputs:
   home:
@@ -14,27 +16,27 @@ menu:
   main:
     - identifier: home
       name: 🏠 首页
-      url: /
+      url: /zzzxy-blog/
       weight: 10
     - identifier: posts
       name: 📝 文章
-      url: /posts/
+      url: /zzzxy-blog/posts/
       weight: 20
     - identifier: categories
       name: 🗂️ 分类
-      url: /categories/
+      url: /zzzxy-blog/categories/
       weight: 30
     - identifier: tags
       name: 🏷️ 标签
-      url: /tags/
+      url: /zzzxy-blog/tags/
       weight: 40
     - identifier: archives
       name: 📅 归档
-      url: /archives/
+      url: /zzzxy-blog/archives/
       weight: 50
     - identifier: about
       name: ℹ️ 关于
-      url: /about/
+      url: /zzzxy-blog/about/
       weight: 60
 
 params:
@@ -51,7 +53,7 @@ params:
     imageHeight: 160
     buttons:
       - name: "📖 查看文章"
-        url: "/posts/"
+        url: "/zzzxy-blog/posts/"
       - name: "⭐ GitHub"
         url: "https://github.com/Zzz12138zz"
   
@@ -68,9 +70,9 @@ params:
       - 🎯 项目复盘与经验总结
       
       **🔍 快速导航**：
-      - [所有文章](/posts/) - 查看全部内容
-      - [分类浏览](/categories/) - 按主题分类
-      - [标签云](/tags/) - 关键词索引
+      - [所有文章](/zzzxy-blog/posts/) - 查看全部内容
+      - [分类浏览](/zzzxy-blog/categories/) - 按主题分类
+      - [标签云](/zzzxy-blog/tags/) - 关键词索引
       
       📧 **联系交流**：xywlkjgzs@sina.com
   
@@ -83,7 +85,7 @@ params:
       url: "mailto:xywlkjgzs@sina.com"
       title: "发送邮件"
     - name: rss
-      url: "/index.xml"
+      url: "/zzzxy-blog/index.xml"
       title: "RSS订阅"
   
   # =============== 显示功能 ===============
