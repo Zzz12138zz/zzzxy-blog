@@ -93,7 +93,7 @@ greet('World');
 > [!IMPORTANT]
 > Key information users need to know to achieve their goal.
 
-> [!w]
+> [!WARNING]
 > Urgent info that needs immediate user attention to avoid problems.
 
 > [!CAUTION]
