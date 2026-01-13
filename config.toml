@@ -1,0 +1,1134 @@
+# ============================================
+#                    Hugo 基础配置
+# ============================================
+
+# 网站基础URL，用于生成绝对链接
+baseURL = "https://zzzxy.qzz.io/"
+
+# 默认内容语言（必须设置）
+# 当用户访问根域名时，将重定向到此语言版本
+defaultContentLanguage = "zh-cn"
+
+# 全局网站标题（可以被语言特定的标题覆盖）
+title = "Zzz's Blog"
+
+# 使用的主题名称
+theme = "DoIt"
+
+# ============================================
+#                    多语言配置
+# ============================================
+# 在此块中定义所有支持的语言
+# 每种语言可以有独立的配置，如标题、菜单、参数等
+
+[languages]
+  # ============================================
+  #                    中文配置
+  # ============================================
+  # 这是默认语言（与上面的 defaultContentLanguage 对应）
+  
+  [languages.zh-cn]
+    # 在语言选择器中的权重（数字越小越靠前）
+    weight = 1
+    
+    # 网站标题（中文版）
+    title = "Zzz's 碎碎念"
+    
+    # 网站语言代码（影响HTML的lang属性）
+    languageCode = "zh-CN"
+    
+    # 显示在语言选择器中的语言名称
+    languageName = "简体中文"
+    
+    # 是否包含中日韩文字（影响分词和搜索）
+    hasCJKLanguage = true
+    
+    # ============================================
+    #                    网站元数据
+    # ============================================
+    # 这些参数可以针对每种语言单独设置
+    
+    [languages.zh-cn.params]
+      # 网站描述，用于SEO和社交分享
+      description = "这里是Zzz的个人博客，记录技术学习、生活感悟和项目分享"
+      
+      # 网站关键词，用于SEO
+      keywords = ["Zzz", "技术博客", "编程", "学习笔记", "个人博客"]
+      
+      # DoIt主题版本
+      version = "0.4.X"
+      
+      # 默认主题模式：light(亮色)、dark(暗色)、black(纯黑)、auto(自动)
+      defaultTheme = "auto"
+      
+      # 日期显示格式（Go语言时间格式）
+      dateFormat = "2006-01-02"
+    
+    # ============================================
+    #                    作者信息
+    # ============================================
+    [languages.zh-cn.params.author]
+      # 作者姓名
+      name = "Zzz"
+      
+      # 作者邮箱
+      email = "xywlkjgzs@sina.com"
+      
+      # 头像图片路径（相对于static目录）
+      avatar = "/imgs/avatar.jpg"
+      
+      # 作者个人主页链接
+      link = "/authors/zzz"
+      
+      # Gravatar邮箱，用于获取头像
+      gravatarEmail = ""
+    
+    # ============================================
+    #                    导航菜单
+    # ============================================
+    # 中文版导航菜单
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "home"
+      name = "🏠 首页"
+      url = "/"
+      weight = 1
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "posts"
+      name = "📝 所有文章"
+      url = "/posts/"
+      weight = 2
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "tags"
+      name = "🏷️ 标签"
+      url = "/tags/"
+      weight = 3
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "categories"
+      name = "📁 分类"
+      url = "/categories/"
+      weight = 4
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "series"
+      name = "📚 系列"
+      url = "/series/"
+      weight = 5
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "authors"
+      name = "👤 作者"
+      url = "/authors/"
+      weight = 6
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "links"
+      name = "🔗 友链"
+      url = "/links/"
+      weight = 7
+    
+    [[languages.zh-cn.menu.main]]
+      identifier = "about"
+      name = "ℹ️ 关于"
+      url = "/about/"
+      weight = 8
+    
+    # ============================================
+    #                    网站外观
+    # ============================================
+    [languages.zh-cn.params.header]
+      # 主题切换模式：switch(开关)、select(选择器)
+      themeChangeMode = "select"
+      
+      [languages.zh-cn.params.header.title]
+        # 网站标题（显示在导航栏）
+        name = "Zzz's 碎碎念"
+        
+        # 网站LOGO图片路径
+        logo = "/svgs/edit_2style.svg"
+        
+        # 是否为标题启用打字机动画效果
+        typeit = false
+    
+    [languages.zh-cn.params.footer]
+      # 是否显示页脚
+      enable = true
+      
+      # 网站创立年份
+      since = 2025
+      
+      # 是否显示"Powered by Hugo & DoIt"
+      hugo = false
+      
+      # 是否显示版权信息
+      copyright = true
+      
+      # 是否显示作者信息
+      author = true
+      
+      # ICP备案号（仅限中国大陆）
+      icp = ""
+      
+      # 内容许可协议
+      license = '<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+      
+      # 自定义页脚内容（支持HTML）
+      custom = '<div style="font-size: 0.85rem; color: #8a94a6; text-align: center; padding: 5px; line-height: 1.5;">我和小野猫相遇在夏天，而夏天从未离去。</div>'
+      
+      # 托管平台信息（如GitHub Pages）
+      hostedOn = ''
+    
+    # ============================================
+    #                    页面配置
+    # ============================================
+    # 主页配置（中文版）
+    [languages.zh-cn.params.home]
+      [languages.zh-cn.params.home.profile]
+        # 是否显示个人资料卡
+        enable = true
+        
+        # 头像图片路径
+        avatarURL = "/imgs/avatar.jpg"
+        
+        # 主页显示的网站标题（支持HTML格式）
+        title = ""
+        
+        # 副标题
+        subtitle = "欢迎访问我的博客！"
+        
+        # 是否为副标题启用打字机效果
+        typeit = true
+        
+        # 是否显示社交图标
+        social = true
+        
+        # 免责声明（支持HTML）
+        disclaimer = "该站仍在建设中，部分内容可能为测试内容，请知悉！"
+      
+      [languages.zh-cn.params.home.posts]
+        # 是否在主页显示文章列表
+        enable = true
+        
+        # 主页每页显示文章数量
+        paginate = 6
+        
+        # 默认情况下是否在主页隐藏文章
+        defaultHiddenFromHomePage = false
+    
+    # 文章列表页配置（如文章归档页面）
+    [languages.zh-cn.params.section]
+      # 每页显示文章数量
+      paginate = 20
+      
+      # 日期显示格式（月-日）
+      dateFormat = "01-02"
+      
+      # RSS中显示的文章数量
+      rss = 10
+      
+      # 最近更新文章设置
+      [languages.zh-cn.params.section.recentlyUpdated]
+        enable = false
+        rss = false
+        days = 30
+        maxCount = 10
+    
+    # 分类/标签列表页配置
+    [languages.zh-cn.params.list]
+      paginate = 20
+      dateFormat = "01-02"
+      rss = 10
+    
+    # 文章页面配置
+    [languages.zh-cn.params.page]
+      # 是否在主页隐藏一篇文章
+      hiddenFromHomePage = false
+      
+      # 是否在搜索结果中隐藏一篇文章
+      hiddenFromSearch = false
+      
+      # 是否使用Twitter Emoji
+      twemoji = false
+      
+      # 是否启用lightgallery图片灯箱效果
+      lightgallery = false
+      
+      # 是否启用Ruby注音扩展语法（如<ruby>）
+      ruby = true
+      
+      # 是否启用分数扩展语法（如1/2）
+      fraction = true
+      
+      # 是否显示"查看Markdown源文件"链接
+      linkToMarkdown = true
+      
+      # 是否显示"查看源文件"链接
+      linkToSource = false
+      
+      # 是否显示"编辑此页"链接
+      linkToEdit = false
+      
+      # 是否显示"报告问题"链接
+      linkToReport = false
+      
+      # 是否在RSS中显示全文内容
+      rssFullText = false
+      
+      # 是否在文章开头显示系列导航
+      seriesNavigation = true
+      
+      # 是否启用最后修改时间
+      enableLastMod = true
+      
+      # 是否启用字数统计
+      enableWordCount = true
+      
+      # 是否启用阅读时间估算
+      enableReadingTime = true
+      
+      # 过时文章提示
+      [languages.zh-cn.params.page.outdatedArticleReminder]
+        enable = true
+        # 如果文章最后更新于90天之前，显示提醒
+        reminder = 90
+        # 如果文章最后更新于180天之前，显示警告
+        warning = 180
+      
+      # 目录设置
+      [languages.zh-cn.params.page.toc]
+        # 是否显示目录
+        enable = true
+        
+        # 是否保持静态目录（在顶部）
+        keepStatic = false
+        
+        # 是否自动折叠目录
+        auto = false
+      
+      # 代码块设置
+      [languages.zh-cn.params.page.code]
+        # 默认显示的代码行数（超出部分折叠）
+        maxShownLines = 15
+        
+        # 是否显示行号
+        lineNos = true
+        
+        # 是否启用代码自动换行
+        wrap = false
+        
+        # 是否显示代码块标题栏
+        header = true
+      
+      # 表格配置
+      [languages.zh-cn.params.page.table]
+        # 是否开启表格排序
+        sort = true
+      
+      # 数学公式设置
+      [languages.zh-cn.params.page.math]
+        # 是否启用数学公式支持
+        enable = true
+        
+        # 默认块定界符（空值表示使用默认值 $$ 和 \\[）
+        blockLeftDelimiter = ""
+        blockRightDelimiter = ""
+        
+        # 默认行内定界符（空值表示使用默认值 $ 和 \\）
+        inlineLeftDelimiter = ""
+        inlineRightDelimiter = ""
+        
+        # 是否启用复制TeX代码功能
+        copyTex = true
+        
+        # 是否启用化学方程式支持（mhchem）
+        mhchem = true
+        
+        # 是否使用MathJax代替KaTeX
+        mathjax = false
+      
+      # 文章分享设置
+      [languages.zh-cn.params.page.share]
+        # 是否启用分享功能
+        enable = true
+        
+        # Twitter分享
+        Twitter = true
+        
+        # Facebook分享
+        Facebook = true
+        
+        # LinkedIn分享
+        Linkedin = false
+        
+        # 微博分享
+        Weibo = true
+        
+        # Line分享
+        Line = true
+        
+        # WhatsApp分享
+        Whatsapp = true
+        
+        # Pinterest分享
+        Pinterest = false
+        
+        # Tumblr分享
+        Tumblr = false
+        
+        # HackerNews分享
+        HackerNews = false
+        
+        # Reddit分享
+        Reddit = false
+        
+        # VK分享
+        VK = false
+        
+        # 邮件分享
+        Email = false
+        
+        # 其他社交平台分享
+        Buffer = false
+        Xing = false
+        Instapaper = false
+        Pocket = false
+        Digg = false
+        Stumbleupon = false
+        Flipboard = false
+        Renren = false
+        Myspace = true
+        Blogger = true
+        Baidu = false
+        Odnoklassniki = false
+        Evernote = true
+        Skype = false
+        Trello = false
+        Mix = false
+        Mastodon = false
+      
+      # 评论系统设置
+      [languages.zh-cn.params.page.comment]
+        enable = true
+        
+        # Giscus评论系统（基于GitHub Discussions）
+        [languages.zh-cn.params.page.comment.giscus]
+          enable = true
+          
+          # 仓库配置
+          dataRepo = "Zzz12138zz/blog-comments"
+          dataRepoId = "R_kgDOQ4EHGQ"
+          
+          # 分类配置
+          dataCategory = "Announcements"
+          dataCategoryId = "DIC_kwDOQ4EHGc4C02W9"
+          
+          # 映射和功能配置
+          dataMapping = "pathname"
+          dataStrict = "0"
+          dataReactionsEnabled = "1"
+          dataEmitMetadata = "0"
+          dataInputPosition = "bottom"
+          
+          # 主题和语言
+          lightTheme = "light"
+          darkTheme = "dark"
+          dataLang = "zh-CN"
+          dataLoading = "lazy"
+      
+      # 第三方库配置
+      [languages.zh-cn.params.page.library]
+        [languages.zh-cn.params.page.library.css]
+          # 自定义CSS文件
+          # 示例：customCSS = "css/custom.css"
+        
+        [languages.zh-cn.params.page.library.js]
+          # 自定义JavaScript文件
+          # 示例：customJS = "js/custom.js"
+      
+      # 页面SEO配置
+      [languages.zh-cn.params.page.seo]
+        # 图片URL数组
+        images = []
+        
+        # 出版者信息
+        [languages.zh-cn.params.page.seo.publisher]
+          name = ""
+          logoUrl = ""
+      
+      # 相关文章推荐配置
+      [languages.zh-cn.params.page.related]
+        enable = true
+        count = 5
+    
+    # ============================================
+    #                    功能模块
+    # ============================================
+    # 搜索功能配置
+    [languages.zh-cn.params.search]
+      # 是否启用搜索功能
+      enable = true
+      
+      # 搜索引擎类型：fuse(本地)、algolia(云端)
+      type = "fuse"
+      
+      # 文章内容最长索引长度
+      contentLength = 4000
+      
+      # 搜索框占位符文本
+      placeholder = "搜索文章..."
+      
+      # 最大搜索结果数量
+      maxResultLength = 10
+      
+      # 结果内容片段长度
+      snippetLength = 50
+      
+      # 搜索结果中高亮部分的HTML标签
+      highlightTag = "em"
+      
+      # 是否在搜索索引中使用基于baseURL的绝对路径
+      absoluteURL = false
+      
+      # Fuse.js搜索配置
+      [languages.zh-cn.params.search.fuse]
+        # 是否区分大小写
+        isCaseSensitive = false
+        
+        # 最小匹配字符长度
+        minMatchCharLength = 2
+        
+        # 是否查找所有匹配项
+        findAllMatches = false
+        
+        # 期望匹配的位置
+        location = 0
+        
+        # 匹配阈值（0.0=完全匹配，1.0=匹配所有）
+        threshold = 0.3
+        
+        # 匹配距离
+        distance = 100
+        
+        # 是否忽略位置
+        ignoreLocation = false
+        
+        # 是否使用扩展搜索
+        useExtendedSearch = false
+        
+        # 是否忽略字段规范
+        ignoreFieldNorm = false
+    
+    # 社交链接配置
+    [languages.zh-cn.params.social]
+      # GitHub用户名
+      GitHub = "Zzz12138zz"
+      
+      # 联系邮箱
+      Email = "xywlkjgzs@sina.com"
+      
+      # 是否显示RSS订阅链接
+      RSS = true
+      
+      # 其他社交平台（可按需启用）
+      # Twitter = "username"
+      # Instagram = "username"
+      # Facebook = "username"
+      # LinkedIn = "username"
+      # Telegram = "username"
+      Weibo = "6252143683"
+      Zhihu = "baby-q-89"
+      Bilibili = "362379307"
+      # QQ = "1964642670"
+      # QQGroup = "123456"
+    
+    # 网站分析配置
+    [languages.zh-cn.params.analytics]
+      # 是否启用网站分析
+      enable = false
+      
+      # Google Analytics配置
+      [languages.zh-cn.params.analytics.google]
+        # Google Analytics测量ID
+        id = ""
+        
+        # 是否匿名化IP地址
+        anonymizeIP = true
+      
+      # 百度统计配置
+      [languages.zh-cn.params.analytics.baidu]
+        id = ""
+      
+      # 其他分析工具配置
+      [languages.zh-cn.params.analytics.fathom]
+        id = ""
+        server = ""
+      
+      [languages.zh-cn.params.analytics.umami]
+        data_website_id = ""
+        src = ""
+        data_host_url = ""
+        data_domains = ""
+      
+      [languages.zh-cn.params.analytics.plausible]
+        data_domain = ""
+        src = ""
+      
+      [languages.zh-cn.params.analytics.cloudflare]
+        token = ""
+    
+    # ============================================
+    #                    高级功能
+    # ============================================
+    # TypeIt打字机效果配置
+    [languages.zh-cn.params.typeit]
+      # 每个字符的打字速度（毫秒）
+      speed = 100
+      
+      # 光标闪烁速度（毫秒）
+      cursorSpeed = 1000
+      
+      # 光标字符
+      cursorChar = "|"
+      
+      # 打字结束之后光标的持续时间（单位是毫秒，"-1" 代表无限大）
+      duration = -1
+
+  # ============================================
+  #                    英文配置
+  # ============================================
+  # 英文版本配置（未来添加英文内容时使用）
+  
+  [languages.en]
+    # 在语言选择器中的权重
+    weight = 2
+    
+    # 网站标题（英文版）
+    title = "Zzz's Blog"
+    
+    # 网站语言代码
+    languageCode = "en-US"
+    
+    # 显示在语言选择器中的语言名称
+    languageName = "English"
+    
+    # ============================================
+    #                    网站元数据（英文版）
+    # ============================================
+    [languages.en.params]
+      # 网站描述（英文）
+      description = "Zzz's personal blog, sharing technical learning, life insights and project experiences"
+      
+      # 网站关键词（英文）
+      keywords = ["Zzz", "Tech Blog", "Programming", "Learning Notes", "Personal Blog"]
+      
+      # DoIt主题版本
+      version = "0.4.X"
+      
+      # 默认主题模式
+      defaultTheme = "auto"
+      
+      # 日期显示格式
+      dateFormat = "2006-01-02"
+    
+    # ============================================
+    #                    作者信息（英文版）
+    # ============================================
+    [languages.en.params.author]
+      name = "Zzz"
+      email = "xywlkjgzs@sina.com"
+      avatar = "/imgs/avatar.jpg"
+      link = "/authors/zzz"
+      gravatarEmail = ""
+    
+    # ============================================
+    #                    导航菜单（英文版）
+    # ============================================
+    [[languages.en.menu.main]]
+      identifier = "home"
+      name = "🏠 Home"
+      url = "/"
+      weight = 1
+    
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "📝 All Posts"
+      url = "/posts/"
+      weight = 2
+    
+    [[languages.en.menu.main]]
+      identifier = "tags"
+      name = "🏷️ Tags"
+      url = "/tags/"
+      weight = 3
+    
+    [[languages.en.menu.main]]
+      identifier = "categories"
+      name = "📁 Categories"
+      url = "/categories/"
+      weight = 4
+    
+    [[languages.en.menu.main]]
+      identifier = "series"
+      name = "📚 Series"
+      url = "/series/"
+      weight = 5
+    
+    [[languages.en.menu.main]]
+      identifier = "authors"
+      name = "👤 Authors"
+      url = "/authors/"
+      weight = 6
+    
+    [[languages.en.menu.main]]
+      identifier = "links"
+      name = "🔗 Links"
+      url = "/links/"
+      weight = 7
+    
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "ℹ️ About"
+      url = "/about/"
+      weight = 8
+    
+    # ============================================
+    #                    网站外观（英文版）
+    # ============================================
+    [languages.en.params.header]
+      themeChangeMode = "select"
+      
+      [languages.en.params.header.title]
+        name = "Zzz's Blog"
+        logo = "/svgs/edit_2style.svg"
+        typeit = false
+    
+    [languages.en.params.footer]
+      enable = true
+      since = 2025
+      hugo = false
+      copyright = true
+      author = true
+      icp = ""
+      license = '<a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
+      custom = '<div style="font-size: 0.85rem; color: #8a94a6; text-align: center; padding: 5px; line-height: 1.5;">I met the little wildcat in summer, and summer never left.</div>'
+      hostedOn = ''
+    
+    # ============================================
+    #                    页面配置（英文版）
+    # ============================================
+    [languages.en.params.home]
+      [languages.en.params.home.profile]
+        enable = true
+        avatarURL = "/imgs/avatar.jpg"
+        title = ""
+        subtitle = "Welcome to my blog!"
+        typeit = true
+        social = true
+        disclaimer = "This site is still under construction. Some content may be test content. Thank you for your understanding!"
+      
+      [languages.en.params.home.posts]
+        enable = true
+        paginate = 6
+        defaultHiddenFromHomePage = false
+    
+    [languages.en.params.section]
+      paginate = 20
+      dateFormat = "01-02"
+      rss = 10
+      
+      [languages.en.params.section.recentlyUpdated]
+        enable = false
+        rss = false
+        days = 30
+        maxCount = 10
+    
+    [languages.en.params.list]
+      paginate = 20
+      dateFormat = "01-02"
+      rss = 10
+    
+    [languages.en.params.page]
+      hiddenFromHomePage = false
+      hiddenFromSearch = false
+      twemoji = false
+      lightgallery = false
+      ruby = true
+      fraction = true
+      linkToMarkdown = true
+      linkToSource = false
+      linkToEdit = false
+      linkToReport = false
+      rssFullText = false
+      seriesNavigation = true
+      enableLastMod = true
+      enableWordCount = true
+      enableReadingTime = true
+      
+      [languages.en.params.page.outdatedArticleReminder]
+        enable = true
+        reminder = 90
+        warning = 180
+      
+      [languages.en.params.page.toc]
+        enable = true
+        keepStatic = false
+        auto = false
+      
+      [languages.en.params.page.code]
+        maxShownLines = 15
+        lineNos = true
+        wrap = false
+        header = true
+      
+      [languages.en.params.page.table]
+        sort = true
+      
+      [languages.en.params.page.math]
+        enable = true
+        blockLeftDelimiter = ""
+        blockRightDelimiter = ""
+        inlineLeftDelimiter = ""
+        inlineRightDelimiter = ""
+        copyTex = true
+        mhchem = true
+        mathjax = false
+      
+      [languages.en.params.page.share]
+        enable = true
+        Twitter = true
+        Facebook = true
+        Linkedin = false
+        Weibo = false  # 英文版通常不需要微博分享
+        Line = true
+        Whatsapp = true
+        Pinterest = false
+        Tumblr = false
+        HackerNews = false
+        Reddit = false
+        VK = false
+        Email = false
+        Buffer = false
+        Xing = false
+        Instapaper = false
+        Pocket = false
+        Digg = false
+        Stumbleupon = false
+        Flipboard = false
+        Renren = false
+        Myspace = true
+        Blogger = true
+        Baidu = false
+        Odnoklassniki = false
+        Evernote = true
+        Skype = false
+        Trello = false
+        Mix = false
+        Mastodon = false
+      
+      [languages.en.params.page.comment]
+        enable = true
+        
+        [languages.en.params.page.comment.giscus]
+          enable = true
+          dataRepo = "Zzz12138zz/blog-comments"
+          dataRepoId = "R_kgDOQ4EHGQ"
+          dataCategory = "Announcements"
+          dataCategoryId = "DIC_kwDOQ4EHGc4C02W9"
+          dataMapping = "pathname"
+          dataStrict = "0"
+          dataReactionsEnabled = "1"
+          dataEmitMetadata = "0"
+          dataInputPosition = "bottom"
+          lightTheme = "light"
+          darkTheme = "dark"
+          dataLang = "en"  # 英文版使用英文界面
+          dataLoading = "lazy"
+      
+      [languages.en.params.page.library]
+        [languages.en.params.page.library.css]
+        
+        [languages.en.params.page.library.js]
+      
+      [languages.en.params.page.seo]
+        images = []
+        
+        [languages.en.params.page.seo.publisher]
+          name = ""
+          logoUrl = ""
+      
+      [languages.en.params.page.related]
+        enable = true
+        count = 5
+    
+    # ============================================
+    #                    功能模块（英文版）
+    # ============================================
+    [languages.en.params.search]
+      enable = true
+      type = "fuse"
+      contentLength = 4000
+      placeholder = "Search posts..."
+      maxResultLength = 10
+      snippetLength = 50
+      highlightTag = "em"
+      absoluteURL = false
+      
+      [languages.en.params.search.fuse]
+        isCaseSensitive = false
+        minMatchCharLength = 2
+        findAllMatches = false
+        location = 0
+        threshold = 0.3
+        distance = 100
+        ignoreLocation = false
+        useExtendedSearch = false
+        ignoreFieldNorm = false
+    
+    [languages.en.params.social]
+      GitHub = "Zzz12138zz"
+      Email = "xywlkjgzs@sina.com"
+      RSS = true
+      # 英文版可启用更多国际社交平台
+      # Twitter = "username"
+      # Instagram = "username"
+      # Facebook = "username"
+      # LinkedIn = "username"
+      # Telegram = "username"
+      Weibo = "6252143683"
+      Zhihu = "baby-q-89"
+      Bilibili = "362379307"
+      # QQ = "1964642670"
+      # QQGroup = "123456"
+    
+    [languages.en.params.analytics]
+      enable = false
+      
+      [languages.en.params.analytics.google]
+        id = ""
+        anonymizeIP = true
+      
+      [languages.en.params.analytics.baidu]
+        id = ""
+      
+      [languages.en.params.analytics.fathom]
+        id = ""
+        server = ""
+      
+      [languages.en.params.analytics.umami]
+        data_website_id = ""
+        src = ""
+        data_host_url = ""
+        data_domains = ""
+      
+      [languages.en.params.analytics.plausible]
+        data_domain = ""
+        src = ""
+      
+      [languages.en.params.analytics.cloudflare]
+        token = ""
+    
+    # ============================================
+    #                    高级功能（英文版）
+    # ============================================
+    [languages.en.params.typeit]
+      speed = 100
+      cursorSpeed = 1000
+      cursorChar = "|"
+      duration = -1
+
+# ============================================
+#                    全局配置
+# ============================================
+# 这些配置在所有语言间共享
+# 如果需要在特定语言中覆盖，可以在语言块中重新定义
+
+[params]
+  # 赞赏配置
+  [params.sponsor]
+    enable = false
+    bio = "如果你觉得这篇文章对你有所帮助，欢迎赞赏~"
+    link = "https://www.buymeacoffee.com"
+    custom = ""
+  
+  # 网站验证代码，用于Google/Bing/Yandex/Pinterest/Baidu
+  [params.verification]
+    google = ""
+    bing = ""
+    yandex = ""
+    pinterest = ""
+    baidu = ""
+    so = ""
+    sogou = ""
+  
+  # 网站SEO配置
+  [params.seo]
+    # 图片URL
+    image = ""
+    # 缩略图URL
+    thumbnailUrl = ""
+    # Google搜索结果中网站备用名字
+    alternateName = ["Hugo DoIt"]
+  
+  # Cookie许可配置
+  [params.cookieconsent]
+    enable = true
+    [params.cookieconsent.content]
+      message = ""
+      dismiss = ""
+      link = ""
+  
+  # 第三方库文件的CDN设置
+  [params.cdn]
+    # CDN数据文件名称
+    data = ""
+  
+  # 兼容性设置
+  [params.compatibility]
+    # 是否使用Polyfill.io来兼容旧式浏览器
+    polyfill = false
+  
+  # 应用图标配置
+  [params.app]
+    # 当添加到iOS主屏幕或者Android启动器时的标题
+    title = "DoIt"
+    # 是否隐藏网站图标资源链接
+    noFavicon = false
+    # 更现代的SVG网站图标
+    svgFavicon = "/svgs/edit.svg"
+    # Safari图标颜色
+    iconColor = "#5bbad5"
+    # Windows v8-10磁贴颜色
+    tileColor = "#da532c"
+  
+  # 图片处理配置
+  [params.image]
+    # 是否缓存远程图片到本地
+    cacheRemote = true
+    # 是否优化图片
+    optimise = true
+    # [试验性功能] 缓存markdown中的图片链接到本地
+    cacheRemoteImages = true
+    # [试验性功能] 使用hugo自带的图片处理功能生成srcset属性
+    optimizeImages = true
+    # [实验性功能] optimizeImages中srcset属性的缩放方法
+    srcsetSmallResizeMethod = "700x webp Lanczos q75"
+    srcsetDefaultResizeMethod = "1200x webp Lanczos q75"
+    srcsetLargeResizeMethod = "2000x webp Lanczos q75"
+
+# ============================================
+#                    Hugo内部配置
+# ============================================
+
+# Markdown解析设置
+[markup]
+  # 语法高亮设置
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = true
+    # false是必要的设置
+    noClasses = false
+  
+  # Goldmark是Hugo 0.60以来的默认Markdown解析库
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    
+    [markup.goldmark.extensions.passthrough]
+      enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]']]
+        inline = [['\(', '\)']]
+    
+    [markup.goldmark.renderer]
+      # 是否在文档中直接使用HTML标签
+      unsafe = true
+  
+  # 目录设置
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 6
+
+# 网站地图配置
+[sitemap]
+  changefreq = "weekly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+# 永久链接格式
+[Permalinks]
+  # 文章永久链接格式
+  posts = ":contentbasename"
+
+# 用于输出Markdown格式文档的设置
+[mediaTypes]
+  [mediaTypes."text/plain"]
+    suffixes = ["md"]
+
+# 用于输出Markdown格式文档的设置
+[outputFormats.MarkDown]
+  mediaType = "text/plain"
+  isPlainText = true
+  isHTML = false
+
+# 用于Hugo输出文档的设置
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML", "MarkDown"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
+# 分类系统配置
+[taxonomies]
+  author = "authors"
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# 隐私信息配置
+[privacy]
+  [privacy.youtube]
+    privacyEnhanced = true
+  
+  [privacy.x]
+    enableDNT = true
+
+# ============================================
+#                    完成配置说明
+# ============================================
+# 
+# 配置已完成！以下是后续步骤：
+# 
+# 1. 文件结构重组：
+#    将现有中文内容移动到对应的目录：
+#    - content/posts/*.md  → content/zh-cn/posts/*.md
+#    - content/about.md    → content/zh-cn/about.md
+#    - content/links.md    → content/zh-cn/links.md
+#    - content/_index.md   → content/zh-cn/_index.md
+# 
+# 2. 创建英文内容骨架（可选）：
+#    - content/en/_index.md
+#    - content/en/about.md
+#    - content/en/links.md
+# 
+# 3. 验证配置：
+#    运行 hugo serve 查看语言选择器是否正常工作
+# 
+# 4. 添加英文内容时：
+#    在 content/en/posts/ 目录下创建英文文章
+#    使用相同的slug确保URL一致性
+# 
+# 注意：现在访问 https://zzzxy.qzz.io/ 将显示中文版
+#       访问 https://zzzxy.qzz.io/en/ 将显示英文版
+#
+# ============================================

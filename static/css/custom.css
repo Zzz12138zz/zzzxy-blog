@@ -1,63 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
-
-body {
-    outline: 5px solid red !important;
+/* 深色模式下反转logo颜色 */
+[data-theme="dark"] .site-logo img,
+[data-theme="black"] .site-logo img {
+  filter: brightness(0) invert(1) hue-rotate(180deg) saturate(0.8);
+  transition: filter 0.3s ease;
 }
 
-
-/* ===============================
-   代码字体设置
-   =============================== */
-
-pre,
-code,
-kbd,
-samp {
-    font-family: 'JetBrains Mono', 
-                 'Fira Code', 
-                 'Source Code Pro',
-                 Consolas, 
-                 Monaco, 
-                 monospace;
-    font-size: 0.9rem;
-    line-height: 1.6;
+/* 优化效果 */
+.site-logo img {
+  transition: filter 0.3s ease;
 }
 
-/* 代码块阴影（轻微） */
-pre {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* 复制按钮更明显 */
-.copy-code {
-    font-size: 0.8rem;
-}
-
-
-
-/* ===============================
-   代码高亮颜色（适配 PaperMod）
-   =============================== */
-
-/* 行内代码 */
-code {
-    color: var(--content);
-    background: var(--code-bg);
-    padding: 2px 5px;
-    border-radius: 4px;
-    font-size: 0.95em;
-}
-
-/* 代码块 */
-pre code {
-    background: transparent;
-    color: inherit;
-}
-
-/* 整个代码块背景 */
-pre {
-    background: var(--code-bg);
-    border-radius: 8px;
-    padding: 16px;
-    overflow-x: auto;
+/* 防止其他滤镜影响 */
+.site-logo img {
+  filter: none !important;
 }

@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HUGO_ENV: production
     
     steps:
       - name: "📥 Checkout code and submodules"
@@ -35,7 +37,8 @@ jobs:
       - name: "🔨 Build Site"
         run: |
           hugo version
-          hugo --minify --gc
+          echo "Building in environment: $HUGO_ENV"
+          hugo --minify --gc --environment production
 
       - name: "📤 Upload Artifact"
         uses: actions/upload-pages-artifact@v3

@@ -1,6 +1,6 @@
 ---
 title: "友情链接"
-date: 2024-12-26
+date: 2026-01-12
 ---
 
 ## 🤝 友链交换
@@ -9,7 +9,7 @@ date: 2024-12-26
 
 ### 技术博客
 - [Hugo 官方](https://gohugo.io/)
-- [PaperMod 主题](https://github.com/adityatelange/hugo-PaperMod)
+- [Hugo DoIt Themes](https://hugodoit.pages.dev/)
 
 ### 工具推荐
 - [GitHub](https://github.com)
