@@ -974,7 +974,7 @@ theme = "DoIt"
   
   # Cookie许可配置
   [params.cookieconsent]
-    enable = true
+    enable = false
     [params.cookieconsent.content]
       message = ""
       dismiss = ""
