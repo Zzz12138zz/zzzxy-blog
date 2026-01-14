@@ -24,7 +24,7 @@ math:
 lightgallery: false
 license: ""
 ---
-This article is mainly used for *testing*.
+This article is mainly used for *testing*, some codes, formulas and other contents.
 <!--more-->
 
 

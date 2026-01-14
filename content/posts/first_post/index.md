@@ -24,7 +24,7 @@ math:
 lightgallery: false
 license: ""
 ---
-这篇文章主要用来*测试*。
+这篇文章主要用来*测试*，一些代码、公式等内容。
 <!--more-->
 
 
