@@ -1002,7 +1002,7 @@ theme = "DoIt"
     # 缩略图URL
     thumbnailUrl = ""
     # Google搜索结果中网站备用名字
-    alternateName = ["Hugo DoIt"]
+    alternateName = ["Zzz's Blog"]
   
   # Cookie许可配置
   [params.cookieconsent]
@@ -1025,7 +1025,7 @@ theme = "DoIt"
   # 应用图标配置
   [params.app]
     # 当添加到iOS主屏幕或者Android启动器时的标题
-    title = "DoIt"
+    title = "Zzz's Blog"
     # 是否隐藏网站图标资源链接
     noFavicon = false
     # 更现代的SVG网站图标
