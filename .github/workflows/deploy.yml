@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -13,46 +16,149 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
+      HUGO_VERSION: "0.154.5"  # 固定版本，更稳定
       HUGO_ENV: production
+      TZ: UTC  # 设置时区
     
     steps:
-      - name: "📥 Checkout code and submodules"
+      - name: "清理工作区和缓存"
+        run: |
+          echo "开始清理工作区..."
+          
+          # 清理输出目录
+          rm -rf public/ 2>/dev/null || true
+          
+          # 清理 Hugo 构建缓存
+          rm -rf resources/_gen/ 2>/dev/null || true
+          
+          # 清理可能的锁文件和临时文件
+          rm -f .hugo_build.lock 2>/dev/null || true
+          find . -name "*.tmp" -type f -delete 2>/dev/null || true
+          
+          echo "清理完成"
+
+      - name: "检出代码和子模块"
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 0
+          fetch-depth: 0  # 获取完整历史，利于子模块
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: "🔧 Setup Hugo"
+      - name: "安装 Hugo"
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: '${{ env.HUGO_VERSION }}'
           extended: true
 
-      - name: "🔨 Build Site"
-        run: |
-          hugo version
-          echo "Building in environment: $HUGO_ENV"
-          hugo --minify --gc --environment production
+      - name: "缓存 Hugo 模块"
+        uses: actions/cache@v4
+        id: hugo-cache
+        with:
+          path: |
+            ~/.cache/hugo
+            ./resources
+          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-${{ hashFiles('**/go.mod', '**/hugo.toml', '**/config.toml', '**/config.yaml', '**/config.json') }}
+          restore-keys: |
+            ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}-
+            ${{ runner.os }}-hugo-
 
-      - name: "📤 Upload Artifact"
+      - name: "显示构建信息"
+        run: |
+          echo "=== 构建环境信息 ==="
+          echo "Hugo 版本:"
+          hugo version
+          echo "当前时间: $(date)"
+          echo "时区: $TZ"
+          echo "主题列表:"
+          hugo config | grep -A5 -B5 "theme" || true
+          echo "=== 最近提交 ==="
+          git log --oneline -5
+
+      - name: "构建网站"
+        run: |
+          echo "开始构建网站..."
+          
+          # 如果有 go.mod 文件，先获取模块
+          if [ -f "go.mod" ]; then
+            echo "安装 Go 模块..."
+            hugo mod get 2>/dev/null || echo "模块已更新"
+          fi
+          
+          # 构建命令，带详细日志
+          set -x  # 开启命令回显
+          time hugo \
+            --minify \
+            --gc \
+            --environment production \
+            --cleanDestinationDir \
+            --logLevel info
+          set +x
+          
+          echo "构建完成"
+
+      - name: "验证构建结果"
+        run: |
+          echo "=== 验证构建输出 ==="
+          
+          # 检查必要文件
+          if [ ! -f "public/index.html" ]; then
+            echo "错误: 未找到 index.html"
+            echo "public 目录内容:"
+            ls -la public/
+            exit 1
+          fi
+          
+          # 检查 sitemap
+          if [ ! -f "public/sitemap.xml" ] && [ ! -f "public/sitemap_index.xml" ]; then
+            echo "警告: 未找到 sitemap.xml"
+          fi
+          
+          # 统计信息
+          echo "构建统计:"
+          du -sh public/ | awk '{print "总大小:", $1}'
+          echo "文件数量: $(find public -type f | wc -l)"
+          echo "HTML 文件: $(find public -name "*.html" | wc -l)"
+          
+          echo "验证通过"
+
+      - name: "上传构建产物"
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+          retention-days: 1  # 产物保留1天
 
+  # 仅在推送到 main 分支时部署
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     
     steps:
-      - name: "🚀 Deploy to GitHub Pages"
+      - name: "部署到 GitHub Pages"
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # PR 预览构建（不部署）
+  preview:
+    if: github.event_name == 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "预览构建完成"
+        run: |
+          echo "PR 预览构建成功完成"
+          echo "本次构建未部署到生产环境"
+          echo "详情查看: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
