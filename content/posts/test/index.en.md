@@ -1,5 +1,5 @@
 ---
-title: "The second article Content Testing"
+title: "The Second Article: Content Testing"
 subtitle: ""
 date: 2026-01-12T10:40:19+08:00
 lastmod: 2026-01-12T10:40:19+08:00
