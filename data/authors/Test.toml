@@ -1,0 +1,6 @@
+name = "测试账号"
+# link = "https://dillonzq.com"
+# email = ""
+avatar = "/authors_imgs/Test.jpg"
+[en]
+    name = "Test-Account"
