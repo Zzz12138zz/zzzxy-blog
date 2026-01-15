@@ -211,7 +211,7 @@ theme = "DoIt"
         social = true
         
         # 免责声明（支持HTML）
-        disclaimer = "该站仍在建设中，部分内容可能为测试内容，请知悉！"
+        disclaimer = "该站仍在建设中，部分可能为测试内容，请知悉！"
       
       [languages.zh-cn.params.home.posts]
         # 是否在主页显示文章列表
@@ -259,7 +259,7 @@ theme = "DoIt"
       twemoji = false
       
       # 是否启用lightgallery图片灯箱效果
-      lightgallery = false
+      lightgallery = true
       
       # 是否启用Ruby注音扩展语法（如<ruby>）
       ruby = true
@@ -736,7 +736,7 @@ theme = "DoIt"
         subtitle = "Welcome to my blog!"
         typeit = true
         social = true
-        disclaimer = "This site is still under construction. Some content may be test content. Thank you for your understanding!"
+        disclaimer = "This website is still under construction. Some of the content may be test content. Please be informed!"
       
       [languages.en.params.home.posts]
         enable = true
@@ -763,7 +763,7 @@ theme = "DoIt"
       hiddenFromHomePage = false
       hiddenFromSearch = false
       twemoji = false
-      lightgallery = false
+      lightgallery = true
       ruby = true
       fraction = true
       linkToMarkdown = true

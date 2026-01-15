@@ -21,7 +21,7 @@ toc:
   enable: true
 math:
   enable: true
-lightgallery: false
+lightgallery: true
 license: ""
 ---
 这篇文章主要用来*测试*，一些代码、公式等内容。

@@ -21,7 +21,7 @@ toc:
   enable: true
 math:
   enable: true
-lightgallery: false
+lightgallery: true
 license: ""
 ---
 This article is mainly used for *testing*, some codes, formulas and other contents.
