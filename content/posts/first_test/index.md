@@ -1,5 +1,5 @@
 ---
-title: "The First Article: Basic Test"
+title: "第一篇文章「基础测试」"
 subtitle: ""
 date: 2026-01-11T10:40:19+08:00
 lastmod: 2026-01-11T10:40:19+08:00
@@ -7,9 +7,9 @@ draft: false
 authors: [Zzz]
 description: ""
 
-tags: [Basic Test]
-categories: [Test]
-series: [Starting Test]
+tags: [基础测试]
+categories: [测试]
+series: [起步测试]
 
 hiddenFromHomePage: false
 hiddenFromSearch: false
@@ -23,67 +23,67 @@ math:
   enable: true
 lightgallery: true
 license: ""
+headless: false
 ---
-This article is mainly used for *testing*, some codes, formulas and other contents.
+这篇文章主要用来*测试*，一些代码、公式等内容。
 <!--more-->
 
 
-## Test code highlighting in various languages
+## 测试各种语言的代码高亮
 
-Python example:
+Python 示例：  
 ```python
 def hello_world():
-"""This is an example of a Python function."""
-name = "Hugo"
-print(f"Hello, {name}!")
-return f"Welcome to use{name}"
+    """这是一个Python函数示例"""
+    name = "Hugo"
+    print(f"Hello, {name}!")
+    return f"欢迎使用{name}"
 
-# Call function
+# 调用函数
 result = hello_world()
 print(f"结果: {result}")
 
-# List comprehension
+# 列表推导式
 numbers = [i for i in range(10) if i % 2 == 0]
-print(f"result: {numbers}")
+print(f"偶数: {numbers}")
 ```
 
-JavaScript example:
+JavaScript 示例：  
 ```javascript
-// JavaScript Example code
+// JavaScript 代码示例
 const greet = (name) => {
-console.log(`Hello, ${name}!`);
-return `Welcome ${name}`;
+    console.log(`Hello, ${name}!`);
+    return `Welcome ${name}`;
 };
 
-// Example of asynchronous function
+// 异步函数示例
 async function fetchData(url) {
-try {
-const response = await fetch(url);
-const data = await response.json();
-return data;
-} catch (error) {
-console.error('Error:', error);
-throw error;
-}
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error:', error);
+        throw error;
+    }
 }
 
-// Use
+// 使用
 greet('World');
 ```
 
 
-> Verify whether the highlighting is working, used to verify whether the code is highlighted!
-
+> 验证高亮是否工作，用来验证代码是否高亮显示！  
 
 ---
-## Verify the formula
+## 验证公式  
 \[ c = \pm\sqrt{a^2 + b^2} \]
 
 \[ f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d \xi \]
 
 ---
 
-## Others
+## 其他
 > [!NOTE]
 > Useful information that users should know, even when skimming content.
 

@@ -23,6 +23,7 @@ math:
   enable: true
 lightgallery: true
 license: ""
+headless: true  
 ---
 
 
