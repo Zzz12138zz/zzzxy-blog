@@ -64,7 +64,7 @@ headless: false
 ---
 {{< admonition note "记录一些常用命令" true>}}
 - **清理垃圾**：`hugo --gc`
-- **启动服务**：`hugo server -D -e production --disableFastRender --dind localhost --port 8888`
+- **启动服务**：`hugo server -D -e production --disableFastRender --bind localhost --port 8888`
 {{< /admonition>}}
 
 ---
