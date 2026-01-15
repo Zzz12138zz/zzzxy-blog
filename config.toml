@@ -96,7 +96,7 @@ theme = "DoIt"
     
     [[languages.zh-cn.menu.main]]
       identifier = "posts"
-      name = "所有文章"
+      name = "文章"
       url = "/posts/"
       weight = 2
     
@@ -659,7 +659,7 @@ theme = "DoIt"
     
     [[languages.en.menu.main]]
       identifier = "posts"
-      name = "All Posts"
+      name = "Posts"
       url = "/posts/"
       weight = 2
     

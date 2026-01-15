@@ -1,5 +1,5 @@
 ---
 title: "系列"
-layout: "categories"
-summary: "所有文章系列"
+layout: "series"
+summary: "所有系列"
 ---
