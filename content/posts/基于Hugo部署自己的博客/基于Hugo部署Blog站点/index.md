@@ -2,12 +2,12 @@
 title: "基于Hugo部署Blog站点"
 subtitle: ""
 date: 2026-01-15T12:55:36+08:00
-lastmod: 2026-01-15T12:55:36+08:00
+lastmod: 2026-01-19T14:24:36+08:00
 draft: false
 authors: [Zzz]
 description: ""
 
-tags: []
+tags: [教程]
 categories: []
 series: [基于Hugo部署自己的博客]
 
@@ -22,10 +22,20 @@ toc:
 math:
   enable: true
 lightgallery: true
-license: ""
+license: '<span style="font-size: 0.95em;">
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/"
+       target="_blank"
+       rel="noopener"
+       style="color: inherit; text-decoration: none; border-bottom: 1px dotted #ccc;">
+      CC BY-NC 4.0
+    </a>
+    <small style="color: #777; margin-left: 5px;">
+      可署名分享，禁止商用
+    </small>
+  </span>'
 headless: false
 ---
-本站使用Hugo项目，搭配DoIt主题，部署而成。该文将记录一些注意事项和常用命令。
+本站使用[Hugo](https://gohugo.io/)项目，搭配[DoIt](https://github.com/HEIGE-PCloud/DoIt)主题部署而成。该文将记录部署流程和一些注意事项及常用命令。
 <!--more-->
 {{< admonition tip "为什么要拥有一个属于自己的博客？" true>}}
 它将帮助建立个人品牌，获得创作自由和尊重，享受快速、稳定的阅读体验，并完全掌控自己的数字资产，同时培养结构化写作和知识管理能力，记录学习轨迹。
@@ -37,13 +47,15 @@ headless: false
 {{< /admonition>}}
 
 ## Hugo
-[Hugo](https://gohugo.io/)是最流行的开源静态站点生成器之一。凭借其惊人的速度和灵活性，Hugo使构建网站再次变得有趣。
+[Hugo](https://gohugo.io/)是最流行的开源静态站点生成器之一，凭借其惊人的速度和灵活性，Hugo使构建网站再次变得有趣。
 
 它将所有内容预先生成为**静态 HTML 文件**。用户访问时，服务器直接发送这些文件，无需数据库查询或后端程序动态渲染。这意味着加载速度极快，对搜索引擎优化（SEO）和用户体验至关重要。
 
-静态文件可以被部署在任何托管服务上（如 Netlify, Vercel, GitHub Pages，甚至对象存储），这些服务大多提供免费额度。无需购买昂贵的虚拟主机或担心服务器被攻击。
+静态文件可以被部署在任何托管服务上（如 Netlify, Vercel, GitHub Pages，甚至对象存储），这些服务大多提供免费额度，无需购买昂贵的虚拟主机或担心服务器被攻击。
 
 [更多信息见Hugo官方文档](https://gohugo.io/documentation/)
+
+{{< image src="hugo_logo.png" caption="" width="1740" height="870" >}}
 
 ### 下载Hugo extended
 {{< admonition tip "为什么需要extended版本？" true>}}
@@ -58,8 +70,71 @@ headless: false
 > 则选择 [hugo_extended_0.154.5_windows-amd64.zip](https://github.com/gohugoio/hugo/releases/download/v0.154.5/hugo_extended_0.154.5_windows-amd64.zip) 下载即可。  
 
 
----
+### 创建项目结构
+首先创建**项目目录**，在合适的位置创建一个文件夹，例如`D:\my_projects\blog-course`，将[上述下载的hugo.exe](#下载hugo-extended)拷贝到新建的文件夹内，随即在文件资源管理器地址栏键入`cmd`并按下`Enter`键以打开Windows命令提示符工具，在命令提示符工具中输入命令`hugo new site . --force`以创建Hugo站点：
+```cmd
 
+D:\my_projects\blog-course>hugo new site . --force
+Congratulations! Your new Hugo site was created in D:\my_projects\blog-course.
+
+Just a few more steps...
+
+1. Change the current directory to D:\my_projects\blog-course.
+2. Create or install a theme:
+   - Create a new theme with the command "hugo new theme <THEMENAME>"
+   - Or, install a theme from https://themes.gohugo.io/
+3. Edit hugo.toml, setting the "theme" property to the theme name.
+4. Create new content with the command "hugo new content <SECTIONNAME>\<FILENAME>.<FORMAT>".
+5. Start the embedded web server with the command "hugo server --buildDrafts".
+
+See documentation at https://gohugo.io/.
+```
+创建成功后可使用`tree /A /F`命令查看项目结构：
+```cmd
+
+D:\my_projects\blog-course>tree /A /F
+卷 软件 的文件夹 PATH 列表
+卷序列号为 000B-57C1
+D:.
+|   hugo.exe
+|   hugo.toml
+|
++---archetypes
+|       default.md
+|
++---assets
++---content
++---data
++---i18n
++---layouts
++---static
+\---themes
+```
+
+### 创建Git仓库
+
+在**项目目录**中右键选择`Open Git Bash here`以打开Git Bash工具，随即输入`git init`以创建一个Git本地仓库，注意该仓库**访问权限应选择公开**，同样请在GitHub创建一个空的远程仓库并拷贝`SSH Address`到剪切板，在Git Bash中键入`git remote add origin your github ssh Address `添加该远程仓库，键入`git remote -v`以查看所有已添加的远程仓库信息：
+```bash
+Zzz@DESKTOP-B7KI5KC MINGW64 /d/my_projects/blog-course
+$ git init
+Initialized empty Git repository in D:/my_projects/blog-course/.git/
+
+Zzz@DESKTOP-B7KI5KC MINGW64 /d/my_projects/blog-course (master)
+$ git remote add origin git@github.com:Zzz12138zz/example-blog.git
+
+Zzz@DESKTOP-B7KI5KC MINGW64 /d/my_projects/blog-course (master)
+$ git remote -v
+origin  git@github.com:Zzz12138zz/example-blog.git (fetch)
+origin  git@github.com:Zzz12138zz/example-blog.git (push)
+
+```
+{{< admonition question "右键菜单没有「Open Git Bash here？」" false >}}
+如果你的计算机还未安装Git工具，请下载安装！  
+如果已经确认安装，请打开Git工具并添加右键菜单。  
+此外，本站未来将开展一个新的Git基础教程系列，敬请期待！
+{{< /admonition >}}
+
+---
 ## *未完待续……*
 ---
 {{< admonition note "记录一些常用命令" true>}}
